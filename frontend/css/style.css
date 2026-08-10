@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -8,6 +18,7 @@
 }
 
 .logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
   color: #e4006c;
   font-weight: 800;
 }
@@ -45,6 +56,7 @@
 }
 
 .page-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 36px;
   font-weight: 800;
 }
@@ -55,6 +67,7 @@
 }
 
 .section-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
   margin-top: 30px;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -69,11 +82,27 @@
 }
 
 .goal-card {
-  background: #fff;
+  background: #f9f9f9;
   border: 2px solid #000;
   border-radius: 4px;
   padding: 16px;
   box-shadow: 6px 6px 0px #000;
+}
+
+.goal-card h4 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.goal-card:has(.not-started) {
+  background: #f3f3f4;
+}
+
+.goal-card:has(.in-progress) {
+  background: #e9fbff;
+}
+
+.goal-card:has(.completed) {
+  background: #ffeef5;
 }
 
 .goal-tag {
@@ -112,3 +141,81 @@
 .completed {
   color: #b60055;
 }
+
+/* wall of fame*/
+.page-wrapper {
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 ;
+}
+
+.page-header {
+    padding: 56px 0 32px;
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-start;   
+    gap: 24px;
+}
+
+.page-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-header-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    background: #ffd9e0;
+    border: 3px solid #1a1c1c;
+    box-shadow: 4px 4px 0 #1a1c1c;
+}
+
+.page-header-title {
+    font-family: 'Bricolage Grotesque', serif;
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.page-header-subtitle {
+    color: #4a4731;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.page-header-filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+}
+
+.btn-wof {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border: 3px solid #1a1c1c;
+    box-shadow: 4px 4px 0 #1a1c1c;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    background: #ffffff;
+    width: auto;        
+    flex: 0 0 auto;     
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-wof:hover {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+.button-yellow { background: #f7e600; color: #1f1c00; }
