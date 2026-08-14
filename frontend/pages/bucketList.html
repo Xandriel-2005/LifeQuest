@@ -1,74 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>LifeQuest | Bucket List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeQuest | BucketList</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;500&display=swap"
-      rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;500&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
-  <!-- navbar -->
-  <header class="navbar">
-    <h2 class="logo">LifeQuest</h2>
-    <nav class="nav-links">
-      <a href="home.html">Dashboard</a>
-      <a href="bucketList.html" class="active">Bucket List</a>
-      <a href="wof.html">Wall of Fame</a>
-    </nav>
-    <button class="btn-yellow">+ Add Goal</button>
-  </header>
+<body class="bg-background text-on-background font-hanken min-h-screen">
 
-  <main class="page-wrap">
+    <!-- Premium Floating Header -->
+    <header
+        class="sticky top-4 z-50 mx-4 md:mx-8 flex items-center justify-between px-6 py-3 border-3 border-black bg-surface-container-lowest rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
 
-    <!-- Page Heading -->
-    <h1 class="page-heading">GROUP GOALS</h1>
-    <p class="page-desc">Dream big, do it together.</p>
+        <!-- Logo -->
+        <a href="home.html"
+            class="group relative text-3xl font-bricolage font-extrabold tracking-tighter text-on-background uppercase overflow-hidden flex items-center">
+            <span class="relative z-10 group-hover:text-white transition-colors duration-300">Life</span>
+            <span class="relative z-10 text-primary group-hover:text-white transition-colors duration-300">Quest</span>
+            <div
+                class="absolute inset-0 bg-black -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0">
+            </div>
+        </a>
 
-    <!-- Not Started -->
-    <h3 class="section-title">Not Started</h3>
-    <div class="goal-list">
-      <div class="goal-card">
-        <p class="goal-tag">Skills</p>
-        <h4>Master 5 Authentic Pasta Recipes</h4>
-        <p class="goal-desc">Weekly cooking workshop to learn carbonara and more.</p>
-        <p class="goal-status not-started">Not Started</p>
-      </div>
-    </div>
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-2 font-space font-bold uppercase text-sm">
+            <a href="home.html"
+                class="px-5 py-2 text-on-background border-2 border-transparent hover:border-black hover:bg-primary-container rounded-md transition-all">
+                Dashboard
+            </a>
+            <a href="bucketList.html"
+                class="relative px-5 py-2 bg-[#bdf2ff] text-on-tertiary-container border-2 border-black rounded-md shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                Bucket List
+            </a>
+            <a href="wof.html"
+                class="px-5 py-2 text-on-background border-2 border-transparent hover:border-black hover:bg-[#ffdad6] rounded-md transition-all">
+                Wall of Fame
+            </a>
+        </nav>
 
-    <!-- In Progress -->
-    <h3 class="section-title">In Progress</h3>
-    <div class="goal-list">
-      <div class="goal-card">
-        <p class="goal-tag">Adventure</p>
-        <h4>Summit Mount Fuji at Sunrise</h4>
-        <p class="goal-desc">2 day trek to catch the sunrise from the top.</p>
-        <p class="goal-status in-progress">In Progress</p>
-      </div>
+        <!-- Right Controls -->
+        <div class="flex items-center gap-4">
+            <!-- Animated Search Bar -->
+            <div class="relative hidden lg:flex items-center group">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none z-10">
+                    <svg class="w-4 h-4 text-black group-focus-within:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text" placeholder="Search adventures..."
+                    class="pl-10 pr-4 py-2 border-2 border-black rounded-md font-hanken text-sm focus:outline-none focus:ring-0 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 w-48 focus:w-64 focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] focus:-translate-y-0.5">
+            </div>
 
-      <div class="goal-card">
-        <p class="goal-tag">Food</p>
-        <h4>Street Food Safari in Bangkok</h4>
-        <p class="goal-desc">Finding the best Pad Thai in the city.</p>
-        <p class="goal-status in-progress">In Progress</p>
-      </div>
-    </div>
+            <!-- Start Quest Button -->
+            <button
+                class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-space font-bold uppercase text-sm tracking-tighter text-white bg-primary border-2 border-black rounded-md group shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all">
+                <span
+                    class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#ffed00] rounded-full group-hover:w-56 group-hover:h-56"></span>
+                <span class="relative group-hover:text-black transition-colors duration-300">+ Start Quest</span>
+            </button>
 
-    <!-- Completed -->
-    <h3 class="section-title">Completed</h3>
-    <div class="goal-list">
-      <div class="goal-card">
-        <p class="goal-tag">Travel</p>
-        <h4>Road Trip Through the Amalfi Coast</h4>
-        <p class="goal-desc">7 days with 4 friends, done last summer.</p>
-        <p class="goal-status completed">Completed</p>
-      </div>
-    </div>
+            <!-- User Avatar -->
+            <button
+                class="w-10 h-10 border-2 border-black rounded-md overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                <img src="https://ui-avatars.com/api/?name=User&background=000&color=fff&bold=true" alt="User Avatar"
+                    class="w-full h-full object-cover">
+            </button>
+        </div>
+    </header>
 
-  </main>
+    <main class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 flex gap-8">
+ 
+        <aside class="hidden lg:block w-72 shrink-0"></aside>
+ 
+        <!-- goals section -->
+        <div class="flex-1">
+ 
+            <!-- heading row -->
+            <div class="flex items-start justify-between mb-8">
+                <div>
+                    <h1 class="font-bricolage text-6xl font-extrabold uppercase tracking-tighter">Group Goals</h1>
+                    <p class="text-gray-700 mt-2 font-hanken font-medium text-lg">Conquer the world one epic moment at a
+                        time.</p>
+                </div>
+                <span
+                    class="bg-[#e4006c] text-white font-space font-bold text-sm px-6 py-3 border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rotate-5 hover:rotate-0 transition-transform cursor-default">
+                    12 ACTIVE
+                </span>
+            </div>
+ 
+            <!-- filter tabs -->
+            <div class="flex flex-wrap gap-3 mb-10 font-space font-bold text-sm uppercase">
+                <button
+                    class="px-4 py-2 border-2 border-black rounded-full bg-black text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">All</button>
+                <button
+                    class="px-4 py-2 border-2 border-black rounded-full bg-white hover:bg-[#ffed00] hover:-translate-y-0.5 transition-all">In
+                    Progress</button>
+                <button
+                    class="px-4 py-2 border-2 border-black rounded-full bg-white hover:bg-[#bdf2ff] hover:-translate-y-0.5 transition-all">Not
+                    Started</button>
+                <button
+                    class="px-4 py-2 border-2 border-black rounded-full bg-white hover:bg-[#ffdad6] hover:-translate-y-0.5 transition-all">Completed</button>
+            </div>
+ 
+            <!-- cards grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+ 
+                <!-- in progress card -->
+                <div
+                    class="border-3 border-black rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col bg-white hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">
+                    <div class="p-8 flex-1">
+                        <span
+                            class="bg-black text-white text-xs font-space font-bold px-2 py-1 rounded">ADVENTURE</span>
+                        <h3 class="font-bricolage font-bold text-2xl mt-4 mb-3">Summit Mount Fuji at Sunrise</h3>
+                        <p class="text-base text-gray-700 font-hanken">An epic 2-day trek to catch the dawn from the
+                            highest peak in Japan.</p>
+                    </div>
+                    <div
+                        class="bg-[#ffed00] px-8 py-4 flex justify-between items-center text-xs font-space font-bold uppercase border-t-3 border-black">
+                        <span>In Progress</span>
+                        <span>40%</span>
+                    </div>
+                </div>
+ 
+                <!-- not started card -->
+                <div
+                    class="border-3 border-black rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col bg-white hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">
+                    <div class="p-8 flex-1">
+                        <span
+                            class="bg-[#bdf2ff] text-on-tertiary-container text-xs font-space font-bold px-2 py-1 rounded">SKILLS</span>
+                        <h3 class="font-bricolage font-bold text-2xl mt-4 mb-3">Master 5 Authentic Pasta Recipes</h3>
+                        <p class="text-base text-gray-700 font-hanken">Weekly cooking workshop to learn carbonara and
+                            more from scratch.</p>
+                    </div>
+                    <div
+                        class="bg-gray-100 px-8 py-4 flex justify-between items-center text-xs font-space font-bold uppercase border-t-3 border-black">
+                        <span>Not Started</span>
+                        <button
+                            class="bg-white border-2 border-black px-3 py-1.5 rounded hover:bg-[#e4006c] hover:text-white transition-colors">Join
+                            Crew</button>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+    </main>
 
 </body>
 

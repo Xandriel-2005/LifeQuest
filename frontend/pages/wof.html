@@ -1,38 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>LifeQuest | Bucket List</title>
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeQuest | Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;500&family=Space+Grotesk:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
 </head>
-<body>
-  <!-- navbar -->
-  <header class="navbar">
-    <h2 class="logo">LifeQuest</h2>
-    <nav class="nav-links">
-      <a href="home.html">Dashboard</a>
-      <a href="bucketList.html">Bucket List</a>
-      <a href="wof.html" class="active">Wall of Fame</a>
-    </nav>
-    <button class="btn-yellow">+ Add Goal</button>
-  </header>
 
-<div class="page-wrapper">
-<section class="page-header">
-<div class="page-header-left">
-<div class="page-header-icon">🏆</div>
-<div>
-<h1 class="page-header-title">Wall of Fame</h1>
-<p class="page-header-subtitle">Every completed quest, celebrated out loud.</p>
-</div>
-</div>
-<div class="page-header-filters">
-<button class="btn-wof button-yellow">All</button>
-<button class="btn-wof">My Groups</button>
-<button class="btn-wof">This Week</button>
-</div>
-</section>
-</div>
+<body class="bg-background text-on-background font-hanken min-h-screen">
 
+    <!-- Premium Floating Header -->
+    <header
+        class="sticky top-4 z-50 mx-4 md:mx-8 flex items-center justify-between px-6 py-3 border-3 border-black bg-surface-container-lowest rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+
+        <!-- Logo -->
+        <a href="home.html"
+            class="group relative text-3xl font-bricolage font-extrabold tracking-tighter text-on-background uppercase overflow-hidden flex items-center">
+            <span class="relative z-10">Life</span>
+            <span class="relative z-10 text-primary">Quest</span>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-2 font-space font-bold uppercase text-sm">
+            <a href="home.html"
+                class="px-5 py-2  text-on-background border-2 border-transparent hover:border-black hover:bg-primary-container rounded-md transition-all ">
+                Dashboard
+            </a>
+            <a href="bucketList.html"
+                class="px-5 py-2 text-on-background border-2 border-transparent hover:border-black hover:bg-[#bdf2ff] rounded-md transition-all">
+                Bucket List
+            </a>
+            <a href="wof.html"
+                class="relative px-5 py-2 bg-[#ffdad6] text-on-background border-2 border-black rounded-md shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                Wall of Fame
+            </a>
+        </nav>
+
+        <!-- Right Controls -->
+        <div class="flex items-center gap-4">
+            <!-- Animated Search Bar -->
+            <div class="relative hidden lg:flex items-center group">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none z-10">
+                    <svg class="w-4 h-4 text-black group-focus-within:text-primary transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text" placeholder="Search adventures..."
+                    class="pl-10 pr-4 py-2 border-2 border-black rounded-md font-hanken text-sm focus:outline-none focus:ring-0 bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 w-48 focus:w-64 focus:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] focus:-translate-y-0.5">
+            </div>
+
+            <!-- Start Quest Button -->
+            <button
+                class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-space font-bold uppercase text-sm tracking-tighter text-white bg-primary border-2 border-black rounded-md group shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all">
+                <span
+                    class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#ffed00] rounded-full group-hover:w-56 group-hover:h-56"></span>
+                <span class="relative group-hover:text-black transition-colors duration-300">+ Start Quest</span>
+            </button>
+
+            <!-- User Avatar -->
+            <button
+                class="w-10 h-10 border-2 border-black rounded-md overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                <img src="https://ui-avatars.com/api/?name=User&background=000&color=fff&bold=true" alt="User Avatar"
+                    class="w-full h-full object-cover">
+            </button>
+        </div>
+    </header>
+
+    <div class="p-8 max-w-[1100px] mx-auto">
+
+        <!-- Page header -->
+        <section class="pt-14 pb-8 flex flex-col items-start gap-6">
+            <div class="flex items-center gap-5">
+                <div class="w-16 h-16 flex items-center justify-center text-3xl bg-secondary-fixed border-3 border-on-surface rounded shadow-offset-mobile -rotate-2">
+                    🏆
+                </div>
+                <div>
+                    <h1 class="font-bricolage text-display-xl-mobile lg:text-headline-lg uppercase tracking-tight leading-none">
+                        Wall of Fame
+                    </h1>
+                    <p class="text-on-surface-variant font-medium mt-2">Every completed quest, celebrated out loud.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 flex-wrap">
+                <button class="btn-primary text-label-bold py-3">All</button>
+                <button class="inline-flex items-center gap-1.5 px-gutter py-3 border-3 border-on-surface bg-surface-container-lowest text-on-surface font-space font-bold uppercase text-label-bold rounded shadow-offset-button transition-all duration-150 hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5">
+                    My Groups
+                </button>
+                <button class="inline-flex items-center gap-1.5 px-gutter py-3 border-3 border-on-surface bg-surface-container-lowest text-on-surface font-space font-bold uppercase text-label-bold rounded shadow-offset-button transition-all duration-150 hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5">
+                    This Week
+                </button>
+            </div>
+        </section>
+
+        <!-- Feed + Leaderboard -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+            <!-- Achievement feed -->
+            <section class="lg:col-span-2 flex flex-col gap-10">
+
+                <!-- Feed item 1 -->
+                <div class="card flex flex-col gap-6 rotate-2">
+                    <span class="sticker-label">Marathon Finisher</span>
+                    <div class="flex items-center gap-4 mt-2">
+                        <div class="w-16 h-16 border-3 border-on-surface rounded shadow-offset-mobile overflow-hidden">
+                            <img alt="Alex" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGwAv94FtvOf1mF5L-lfyB9aCwx1UNQ9UZvMDaYLnF0Ur0kCnw2oaWvuL5NeYq7hKkBPahmlfZnsWDVUnb_znDz9i_h8AxB6MDwR0hueA2Huo7nCXAHNXPIwWABDmVo2czCGXfRAmsDWC4Gh60CGfArz2XGO6sgQ9mFBueM0TAcGb2xe77qz8PRvnZpGvKYAtnuvzTjW7I8qpgIXia-7OJ4_rmqjsTjHsM6xrQUyRJBtB4McTE6AR6"/>
+                        </div>
+                        <div>
+                            <h4 class="font-bricolage font-extrabold text-xl uppercase">Alex Rivero</h4>
+                            <p class="text-sm font-medium text-on-surface-variant">Completed a full 42km marathon &bull; 2h ago</p>
+                        </div>
+                    </div>
+
+                    <div class="h-64 border-3 border-on-surface rounded overflow-hidden shadow-offset-mobile">
+                        <img alt="Victory" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqsnNRbLWi6LFa7KpXqc9LcKp9dV2oRHif5IdCh3NspPzHLgnNkmo73jmsHOCSou7sw_q-quK02lamHqAwU7iW-YMMvYFF7K_IKu3zZUSeOhtGNa6tcGvCqJxbAAkBb_J3Wx807L6IdTYRKa6X-vRovC6fN0QNh5F9MPoqf7DgCgy8v96butW1Cm6KoaJzr80rFxF_lRGj11VOrIhKY7yam-sIpOfnoHXdo_CHszPhZlQ1Y-Hgkp_E"/>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-4">
+                            <button class="inline-flex items-center gap-1.5 px-5 py-2 border-3 border-on-surface bg-primary-fixed text-on-primary-fixed font-space font-bold text-label-bold rounded shadow-offset-button transition-all duration-150 hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5">
+                                ❤️ 128
+                            </button>
+                            <button class="inline-flex items-center gap-1.5 px-5 py-2 border-3 border-on-surface bg-surface-container-lowest text-on-surface font-space font-bold text-label-bold rounded shadow-offset-button transition-all duration-150 hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5">
+                                💬 24
+                            </button>
+                        </div>
+                        <div class="flex -space-x-3">
+                            <span class="w-9 h-9 flex items-center justify-center text-lg bg-tertiary border-2 border-on-surface rounded-full shadow-offset-mobile rotate-2">🔥</span>
+                            <span class="w-9 h-9 flex items-center justify-center text-lg bg-secondary border-2 border-on-surface rounded-full shadow-offset-mobile -rotate-2">⭐</span>
+                            <span class="w-9 h-9 flex items-center justify-center text-lg bg-primary border-2 border-on-surface rounded-full shadow-offset-mobile rotate-2">🙌</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2 pt-4 border-t-2 border-on-surface text-sm font-medium">
+                        <p><span class="font-bricolage font-extrabold uppercase text-secondary">Sarah Chen:</span> Amazing job, you crushed it! 🚀</p>
+                        <p><span class="font-bricolage font-extrabold uppercase text-primary">Marco Polo:</span> Total inspiration. Which one's next? 🌏</p>
+                    </div>
+                </div>
+
+                <!-- Feed item 2 -->
+                <div class="card flex flex-col gap-6 -rotate-2">
+                    <span class="sticker-label" style="background:#ffed00; color:#736a00;">Solo Trip Done</span>
+                    <div class="flex items-center gap-4 mt-2">
+                        <div class="w-16 h-16 border-3 border-on-surface rounded shadow-offset-mobile overflow-hidden">
+                            <img alt="Priya" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKroliD1w9821e4wMugprqu-0L6bjkY-8_N78i2fngH6XgKItbRSKK6saCnLJcLRLH5vflxkhKeZamVfl_lKFMC0j4KnQx0gnVIWU3PG8yLo8jwi1jQzK2ohD5D3JUghYhLVC9yFABBoJulOi_lka-0njoaF4Mc8oedX9jcwDu-0pp0gV4PIuezXkXIBZD1GDlkRbpaPVDn5NkIqmXPfRaAXSTf5CpkmYK68wZGHnDZMfckuBYyWxw"/>
+                        </div>
+                        <div>
+                            <h4 class="font-bricolage font-extrabold text-xl uppercase">Priya Sharma</h4>
+                            <p class="text-sm font-medium text-on-surface-variant">Solo bike trip to Ladakh, done and dusted &bull; 5h ago</p>
+                        </div>
+                    </div>
+
+                    <div class="h-64 border-3 border-on-surface rounded overflow-hidden shadow-offset-mobile">
+                        <img alt="Adventure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmzmw4OimdsxzVLbsbui-X69LSjrTHEfz6N1Ap2VHWKFnbdr0IrvSVNZfqBb1tRyl3kVAaR88pDso49O54WUrye7awOSeocJFgLbYO4PX40TGL3Cs91zbpeOaLIEH7yuBZ3kH5sOMNnCtrSLpIxhFt-kV9E7WL1Vyt7Yfi5CU7UWHk-8gSZdQZNQDsD6_imb285XL_LHeK7bHfK6DQsUhmWy1ov4eZfpKhvp6jObolawhSEV1UCHxx"/>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex gap-4">
+                            <button class="inline-flex items-center gap-1.5 px-5 py-2 border-3 border-on-surface bg-surface-container-lowest text-on-surface font-space font-bold text-label-bold rounded shadow-offset-button transition-all duration-150 hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5">
+                                ❤️ 96
+                            </button>
+                            <button class="inline-flex items-center gap-1.5 px-5 py-2 border-3 border-on-surface bg-surface-container-lowest text-on-surface font-space font-bold text-label-bold rounded shadow-offset-button transition-all duration-150 hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5">
+                                💬 11
+                            </button>
+                        </div>
+                        <span class="chip">7 days &bull; 900 km</span>
+                    </div>
+                </div>
+            </section>
+
+            
 </body>
+
 </html>
