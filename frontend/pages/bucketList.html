@@ -9,6 +9,52 @@
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;500&family=Space+Grotesk:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
+    <style>
+        body {
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -10%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(228, 0, 108, 0.16), transparent 42%),
+                radial-gradient(circle at 80% 15%, rgba(255, 237, 0, 0.20), transparent 42%),
+                radial-gradient(circle at 30% 80%, rgba(189, 242, 255, 0.24), transparent 48%),
+                radial-gradient(circle at 85% 85%, rgba(228, 0, 108, 0.14), transparent 42%);
+            background-size: 180% 180%;
+            animation: gradientDrift 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gradientDrift {
+            0% {
+                background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%;
+                transform: scale(1) rotate(0deg);
+            }
+            33% {
+                background-position: 40% 30%, 55% 45%, 30% 60%, 65% 70%;
+                transform: scale(1.08) rotate(1deg);
+            }
+            66% {
+                background-position: 15% 55%, 80% 20%, 55% 85%, 90% 55%;
+                transform: scale(1.04) rotate(-1deg);
+            }
+            100% {
+                background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body::before {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-background text-on-background font-hanken min-h-screen">
@@ -130,15 +176,26 @@
  
             <!-- filter tabs -->
             <div class="flex flex-wrap gap-3 mb-10 font-space font-bold text-sm uppercase">
-                <button data-filter="all" data-color="bg-black" data-text="text-white"
+                <button data-filter="all"
+                    data-active="bg-black text-white"
+                    data-inactive="bg-white text-black hover:bg-black hover:text-white hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                     class="filter-btn px-4 py-2 border-2 border-black rounded-full bg-black text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">All</button>
-                <button data-filter="in-progress" data-color="bg-[#ffed00]" data-text="text-black"
+
+                <button data-filter="in-progress"
+                    data-active="bg-[#ffed00] text-black"
+                    data-inactive="bg-white text-black hover:bg-[#ffed00] hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                     class="filter-btn px-4 py-2 border-2 border-black rounded-full bg-white text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffed00] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">In
                     Progress</button>
-                <button data-filter="not-started" data-color="bg-[#bdf2ff]" data-text="text-black"
+
+                <button data-filter="not-started"
+                    data-active="bg-[#bdf2ff] text-black"
+                    data-inactive="bg-white text-black hover:bg-[#bdf2ff] hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                     class="filter-btn px-4 py-2 border-2 border-black rounded-full bg-white text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#bdf2ff] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">Not
                     Started</button>
-                <button data-filter="completed" data-color="bg-[#ffdad6]" data-text="text-black"
+
+                <button data-filter="completed"
+                    data-active="bg-[#ffdad6] text-black"
+                    data-inactive="bg-white text-black hover:bg-[#ffdad6] hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                     class="filter-btn px-4 py-2 border-2 border-black rounded-full bg-white text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-[#ffdad6] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">Completed</button>
             </div>
  
@@ -283,16 +340,12 @@
       const filter = btn.dataset.filter;
 
       filterButtons.forEach(b => {
-        const color = b.dataset.color;
-        const text = b.dataset.text;
-        b.classList.remove(color, text);
-        b.classList.add('bg-white', 'text-black', `hover:${color}`, `hover:${text}`, 'hover:translate-x-[1px]', 'hover:translate-y-[1px]', 'hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]');
+        b.classList.remove(...b.dataset.active.split(' '));
+        b.classList.add(...b.dataset.inactive.split(' '));
       });
 
-      const activeColor = btn.dataset.color;
-      const activeText = btn.dataset.text;
-      btn.classList.remove('bg-white', 'text-black', `hover:${activeColor}`, `hover:${activeText}`, 'hover:translate-x-[1px]', 'hover:translate-y-[1px]', 'hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]');
-      btn.classList.add(activeColor, activeText);
+      btn.classList.remove(...btn.dataset.inactive.split(' '));
+      btn.classList.add(...btn.dataset.active.split(' '));
 
       goalCards.forEach(card => {
         if (filter === 'all' || card.dataset.status === filter) {
@@ -305,6 +358,7 @@
   });
 
 </script>
+</parameter>
 </body>
 
 </html>
