@@ -12,9 +12,9 @@ LifeQuest is a full-stack web application that helps friend groups create, track
 
 ## Tech stack
 
-- Frontend: React
-- Backend: Node.js / Python
-- Database: MongoDB / PostgreSQL
+- Frontend: HTML,Tailwind CSS
+- Backend: Node.js / Python   (in Progress)
+- Database: MongoDB / PostgreSQL   (in Progress)
 
 ## Running locally
 
