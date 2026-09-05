@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xandriel-2005/LifeQuest.git"
+    "url": "git+https://github.com/skit-devops-2026/devops-24ESKCS098.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Xandriel-2005/LifeQuest/issues"
+    "url": "https://github.com/skit-devops-2026/devops-24ESKCS098/issues"
   },
-  "homepage": "https://github.com/Xandriel-2005/LifeQuest#readme",
+  "homepage": "https://github.com/skit-devops-2026/devops-24ESKCS098#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/vite": "^4.3.3",
